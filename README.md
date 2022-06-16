@@ -1,0 +1,2 @@
+# fbash
+Parse bash flags
