@@ -108,19 +108,19 @@ function LOG() {
 }
 
 function LOG_INFO() {
-  LOG "I $@"
+  LOG "INFO $@"
 }
 
 function LOG_WARNING() {
-  LOG "W $@"
+  LOG "WARN $@"
 }
 
 function LOG_ERROR() {
-  LOG "E $@"
+  LOG "ERROR $@"
 }
 
 function LOG_EXIT() {
-  LOG "E $@"
+  LOG "ERROR $@"
   exit 1
 }
 
@@ -160,7 +160,7 @@ function fbash::init() {
             ;;
           int|string)
             if [[ -n "$2" ]] && [[ ${2:0:1} != '-' ]]; then
-              if [[ $flag = string ]]; then
+              if [[ ${TYPES[$flag]} = string ]]; then
                 export FLAGS_$flag="$2"
               else
                 export FLAGS_$flag=$2
